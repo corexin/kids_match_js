@@ -1,28 +1,23 @@
 .component-button {
   display: inline-flex;
-  width: 50px;
+  width: 45px;
   flex: 1 0 auto;
-}
-
-.component-button.wide {
-  width: 50%;
-}
-
-.component-button button {
   background-color: #e0e0e0;
   border: 0;
-  font-size: 1rem;
-  margin: 0 1px 0 0;
-  flex: 1 0 auto;
-  padding: 0;
+  padding: 3px;
 }
 
-.component-button:last-child button {
-  margin-right: 0;
+.component-button span {
+  text-align: center;
+  padding: 20px 0;
 }
 
-.component-button.orange button {
-  background-color: #f5923e;
-  color: white;
+.component-button input {
+  height: 50px;
+  width: 100px;
+  display: block;
+  margin : 15px auto;
+  padding : 1px;
+  font-size: 30px;
+  color: purple;
 }
-

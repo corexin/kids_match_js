@@ -13,7 +13,9 @@ export default class Button extends React.Component {
   handleClick = () => {
     this.props.clickHandler(this.props.name);
   };
-
+  handleChange = (e) => {
+    console.log(e);
+  };
   render() {
     const className = [
       "component-button",
@@ -23,7 +25,7 @@ export default class Button extends React.Component {
 
     return (
       <div className={className.join(" ").trim()}>
-        <button  >{this.props.name}</button><input/>
+        <span>{this.props.name}</span><input type="text" onChange={this.handleChange}/>
       </div>
     );
   }
