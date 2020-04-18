@@ -9,16 +9,25 @@ export default class ButtonPanel extends React.Component {
     clickHandler: PropTypes.func,
   };
 
-  handleClick = buttonName => {
-    this.props.clickHandler(buttonName);
+    state = {
+        range: 10
+    }
+  handleClick = (e) => {
+
+    console.log(e);
+
   };
+    setRange = (v) => {
+        this.setState({range: v});
+    }
+
   randomPlus = ()=>{
-      return Math.floor(Math.random() * 10) + "+" + Math.floor(Math.random() * 10) + "=";
+      return Math.floor(Math.random() * this.state.range) + "+" + Math.floor(Math.random() * this.state.range) + "=";
   }
   render() {
     return (
-      <div className="component-button-panel">
-        <div>
+      <div className="row component-button-panel">
+        <div >
             <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
             <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
             <Button name={this.randomPlus()} clickHandler={this.handleClick}/>

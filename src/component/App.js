@@ -5,21 +5,28 @@ import calculate from "../logic/calculate";
 import "./App.css";
 
 export default class App extends React.Component {
+
+ constructor(props) {
+   super(props);
+   this.panelRef = React.createRef();
+ }
   state = {
     total: null,
     next: null,
     operation: null,
+    range:10,
   };
 
-  handleClick = buttonName => {
-    this.setState(calculate(this.state, buttonName));
+  handleClick = (value) => {
+    this.setState({range: value});
+    this.panelRef.current.setRange(value);
   };
 
   render() {
     return (
-      <div className="component-app">
-        <Display value={this.state.next || this.state.total || "0"} />
-        <ButtonPanel clickHandler={this.handleClick} />
+      <div className="container">
+        <Display clickHandler={this.handleClick} />
+        <ButtonPanel clickHandler={this.handleClick} ref={this.panelRef} />
       </div>
     );
   }

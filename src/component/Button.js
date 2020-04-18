@@ -9,13 +9,24 @@ export default class Button extends React.Component {
     wide: PropTypes.bool,
     clickHandler: PropTypes.func,
   };
+  state = {
+    errorStyle: ""
+  }
 
-  handleClick = () => {
-    this.props.clickHandler(this.props.name);
+  handleClick = (e) => {
+
+    let result = eval(this.props.name.trim().replace("=","").trim());
+    console.log(result + "," + e.target.value);
+    if(result == e.target.value)
+    {
+
+      this.setState({errorStyle: "form-control is-valid"});
+    }
+    else {
+      this.setState({errorStyle: "form-control is-invalid"});
+    }
   };
-  handleChange = (e) => {
-    console.log(e);
-  };
+
   render() {
     const className = [
       "component-button",
@@ -24,8 +35,8 @@ export default class Button extends React.Component {
     ];
 
     return (
-      <div className={className.join(" ").trim()}>
-        <span>{this.props.name}</span><input type="text" onChange={this.handleChange}/>
+      <div className={className.join(" ").trim()} >
+        <span>{this.props.name}</span><input className={this.state.errorStyle} type="text" onChange={this.handleClick}/>
       </div>
     );
   }
