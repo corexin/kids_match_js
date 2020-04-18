@@ -8,7 +8,7 @@
 
 .component-button-panel > div {
   width: 100%;
-  margin-bottom: 1px;
+  margin-bottom: 5px;
   flex: 1 0 auto;
   display: flex;
 }

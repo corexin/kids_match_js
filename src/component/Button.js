@@ -42,8 +42,9 @@ export default class Button extends React.Component {
     ];
 
     return (
-      <div className={className.join(" ").trim()} >
-        <span>{this.props.name}</span><input className={this.state.errorStyle} type="text" onChange={this.handleClick}/>
+      <div className="component-button col-">
+        <span>{this.props.name}</span>
+        <input className={this.state.errorStyle} type="text" onChange={this.handleClick}/>
       </div>
     );
   }

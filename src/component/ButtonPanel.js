@@ -27,51 +27,26 @@ export default class ButtonPanel extends React.Component {
   randomPlus = ()=>{
       return Math.floor(Math.random() * this.state.range) + "+" + Math.floor(Math.random() * this.state.range) + "=";
   }
+    createRow = (row) => {
+        let table = []
+
+        // Outer loop to create parent
+        for (let i = 0; i < row; i++) {
+            let children = []
+            //Inner loop to create children
+            for (let j = 0; j < 4; j++) {
+                children.push(<Button name={this.randomPlus()} clickHandler={this.handleClick}/>)
+            }
+            //Create the parent and add the children
+            table.push(<div className="row">{children}</div>)
+        }
+        return table
+    }
+
   render() {
     return (
       <div className="row component-button-panel">
-        <div >
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-        </div>
-        <div>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-        </div>
-        <div>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-        </div>
-        <div>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-        </div>
-        <div>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-            <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-        </div>
-          <div>
-              <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-              <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-              <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-              <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-          </div>
-          <div>
-              <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-              <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-              <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-              <Button name={this.randomPlus()} clickHandler={this.handleClick}/>
-          </div>
+          {this.createRow(15)}
       </div>
     );
   }
