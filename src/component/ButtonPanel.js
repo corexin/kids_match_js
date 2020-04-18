@@ -12,12 +12,15 @@ export default class ButtonPanel extends React.Component {
     state = {
         range: 10
     }
+
+
   handleClick = (e) => {
 
     console.log(e);
 
   };
     setRange = (v) => {
+
         this.setState({range: v});
     }
 

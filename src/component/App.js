@@ -19,6 +19,7 @@ export default class App extends React.Component {
 
   handleClick = (value) => {
     this.setState({range: value});
+
     this.panelRef.current.setRange(value);
   };
 
